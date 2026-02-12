@@ -1,0 +1,29 @@
+demian-llm-journal-service/
+├── app/
+│   ├── main.py               # FastAPI 엔트리포인트
+│   ├── api/                  # 라우터(엔드포인트)
+│   │   └── v1/
+│   │       ├── health.py
+│   │       └── entries.py
+│   ├── core/                 # 설정/로깅/공통
+│   │   ├── config.py
+│   │   └── logging.py
+│   ├── db/                   # DB 연결/세션/마이그레이션 연결부
+│   │   ├── session.py
+│   │   └── base.py
+│   ├── models/               # ORM 모델(SQLAlchemy)
+│   │   └── entry.py
+│   ├── schemas/              # Pydantic 스키마(요청/응답)
+│   │   └── entry.py
+│   ├── services/             # 비즈니스 로직(LLM, 도메인 규칙)
+│   │   ├── llm_service.py
+│   │   └── entry_service.py
+│   └── utils/                # 유틸(시간, 문자열 등)
+│       └── datetime.py
+├── tests/                    # 테스트
+├── docs/                     # ERD, API 명세, 다이어그램
+├── .gitignore
+├── .python-version
+├── pyproject.toml
+├── uv.lock                   # uv 쓰면 생성(커밋 추천)
+└── README.md
