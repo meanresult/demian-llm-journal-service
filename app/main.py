@@ -1,6 +1,12 @@
-def main():
-    print("Hello from demian-llm-journal-service!")
+# main.py
+from fastapi import FastAPI
+from sqlalchemy import text
+from db.database import engine
 
+app = FastAPI()
 
-if __name__ == "__main__":
-    main()
+@app.get("/test-db")
+def test_db():
+    with engine.connect() as conn:
+        result = conn.execute(text("SELECT 1"))
+        return {"result": result.scalar()}
