@@ -15,14 +15,21 @@ def get_me(
 
     row = db.execute(
         text("""
+            INSERT INTO users (user_id)
+            VALUES (:user_id)
+            ON CONFLICT (user_id) DO NOTHING
+        """),
+        {"user_id": user_id}
+    )
+    db.commit()
+
+    row = db.execute(
+        text("""
             SELECT user_id, display_name, timezone, created_at
             FROM users
             WHERE user_id = :user_id
         """),
         {"user_id": user_id}
     ).mappings().first()
-
-    if not row:
-        raise HTTPException(status_code=404, detail="User not found in DB")
 
     return row
