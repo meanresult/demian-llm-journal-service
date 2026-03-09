@@ -1,4 +1,4 @@
-from app.db.Session import engine
+from app.db.session import engine
 from app.db.base import Base
 import app.models  # 이 import가 핵심 (모델 등록)
 
