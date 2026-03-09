@@ -1,4 +1,16 @@
+# Python
 .venv/
 __pycache__/
+*.pyc
+
+# Env
 .env
-docs/커밋규칙.txt
+backend/.env
+
+# Docs
+backend/docs/커밋규칙.txt
+
+# Node
+frontend/node_modules/
+frontend/.next/
+frontend/.env.local
